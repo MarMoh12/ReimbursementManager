@@ -1,0 +1,88 @@
+@startuml
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class FundingGroup {
+  +id: ID
+  +name: string
+  +date: date
+  +total_expenses(): decimal
+  +total_income(): decimal
+  +balance(): decimal
+}
+
+class Application {
+  +id: ID
+  +applicant: User
+  +iban: string
+  +account_holder: string
+  +comment: text
+  +status: enum
+  +submitted_at: datetime
+  +total_amount(): decimal
+}
+
+class ApplicationItem {
+  +id: ID
+  +position_number: string
+  +description: string
+  +amount: decimal
+  +receipt_file: file
+}
+
+class BudgetEntry {
+  +id: ID
+  +category: string
+  +amount: decimal
+}
+
+class IncomeEntry {
+  +id: ID
+  +source: string
+  +amount: decimal
+  +received_at: date
+  +comment: text
+}
+
+class CashExpenseEntry {
+  +id: ID
+  +amount: decimal
+  +purpose: string
+  +booking_date: date
+  +receipt_number: string
+  +receipt_file: file
+  +created_at: datetime
+}
+
+class CashIncomeEntry {
+  +id: ID
+  +amount: decimal
+  +purpose: string
+  +booking_date: date
+  +receipt_number: string
+  +receipt_file: file
+  +created_at: datetime
+}
+
+class User {
+  +id: ID
+  +username: string
+}
+
+' Beziehungen
+Application "1" --> "many" ApplicationItem : items
+Application "1" --> "many" CashExpenseEntry : expense_entries
+Application "many" --> "1" User : applicant
+
+ApplicationItem "many" --> "0..1" BudgetEntry : budget_entry
+ApplicationItem "many" --> "0..1" FundingGroup : funding_group
+
+BudgetEntry "many" --> "1" FundingGroup : funding_group
+IncomeEntry "many" --> "1" FundingGroup : funding_group
+CashIncomeEntry "many" --> "1" IncomeEntry : income_entry
+CashExpenseEntry "many" --> "1" Application : application
+CashExpenseEntry "many" --> "0..1" FundingGroup : funding_group
+CashIncomeEntry "many" --> "0..1" FundingGroup : funding_group
+
+@enduml

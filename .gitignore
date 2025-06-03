@@ -1,18 +1,19 @@
-# Node.js
-node_modules/
-frontend/build/
-frontend/dist/
+# Node.js (Frontend)
+frontend/node_modules/
 frontend/.env
-frontend/.env.local
-frontend/coverage/
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/.cache/
 
-# Python/Django
+# Python/Django (Backend)
 backend/__pycache__/
 backend/**/*.py[cod]
 backend/db.sqlite3
 backend/.env
 backend/venv/
 backend/media/
+backend/staticfiles/
 backend/*.log
 
 # Allgemein
@@ -22,6 +23,13 @@ backend/*.log
 *.swp
 *.swo
 *.tgz
+*.tar.gz
+
+# Testdateien / Output
+*.coverage
+.coverage
+htmlcov/
+*.pytest_cache/
 
 # IDEs/Editoren
 .vscode/

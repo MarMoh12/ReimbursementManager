@@ -1,0 +1,17 @@
+1:Marcel
+2:Lukas
+3:Ole
+4:Kevin
+
+from reimbursements.models import (
+    Application, ApplicationItem, FundingGroup, BudgetEntry,
+    CashExpenseEntry, CashIncomeEntry, IncomeEntry
+)
+
+CashIncomeEntry.objects.all().delete()
+CashExpenseEntry.objects.all().delete()
+ApplicationItem.objects.all().delete()
+Application.objects.all().delete()
+BudgetEntry.objects.all().delete()
+FundingGroup.objects.all().delete()
+IncomeEntry.objects.all().delete()

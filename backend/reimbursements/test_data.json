@@ -1,0 +1,1347 @@
+[
+  {
+    "model": "reimbursements.incomeentry",
+    "pk": 1,
+    "fields": {
+      "funding_group": 1,
+      "source": "Autoimportiert",
+      "amount": "500.00",
+      "received_at": "2025-04-01",
+      "comment": "Ergänzt für CashIncomeEntry"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 1,
+    "fields": {
+      "name": "BA Antrittswochenende",
+      "date": "2025-04-10"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 2,
+    "fields": {
+      "category": "Gastgeschenk",
+      "amount": "50.00",
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 3,
+    "fields": {
+      "category": "Reinigung Tischdecken",
+      "amount": "100.00",
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 4,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 5,
+    "fields": {
+      "name": "Semesterantrittskneipe",
+      "date": "2025-04-11"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 6,
+    "fields": {
+      "category": "Mitternachtsimbiss",
+      "amount": "100.00",
+      "funding_group": 5
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 7,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 5
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 8,
+    "fields": {
+      "name": "Weißwurstfrühstück 1",
+      "date": "2025-04-12"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 9,
+    "fields": {
+      "category": "Weißwürste, Brezn, Senf",
+      "amount": "100.00",
+      "funding_group": 8
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 10,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 8
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 11,
+    "fields": {
+      "name": "Maibowle",
+      "date": "2025-04-13"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 12,
+    "fields": {
+      "category": "Deko",
+      "amount": "100.00",
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 13,
+    "fields": {
+      "category": "Bowle-Zutaten",
+      "amount": "200.00",
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 14,
+    "fields": {
+      "category": "Tischdeckenreinigung",
+      "amount": "100.00",
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 15,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 16,
+    "fields": {
+      "name": "MDC-Maibowle",
+      "date": "2025-04-14"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 17,
+    "fields": {
+      "category": "MDC-Kooperation",
+      "amount": "300.00",
+      "funding_group": 16
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 18,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 16
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 19,
+    "fields": {
+      "name": "Stiftungsfest Redaria",
+      "date": "2025-04-15"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 20,
+    "fields": {
+      "category": "Fahrtkostenpauschale",
+      "amount": "300.00",
+      "funding_group": 19
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 21,
+    "fields": {
+      "category": "Gastgeschenk",
+      "amount": "50.00",
+      "funding_group": 19
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 22,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 19
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 23,
+    "fields": {
+      "name": "Stiftungsfest Germania",
+      "date": "2025-04-16"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 24,
+    "fields": {
+      "category": "Fahrtkostenpauschale",
+      "amount": "200.00",
+      "funding_group": 23
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 25,
+    "fields": {
+      "category": "Gastgeschenk",
+      "amount": "50.00",
+      "funding_group": 23
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 26,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 23
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 27,
+    "fields": {
+      "name": "Stiftungsfest AKB",
+      "date": "2025-04-17"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 28,
+    "fields": {
+      "category": "Fahrtkostenpauschale",
+      "amount": "300.00",
+      "funding_group": 27
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 29,
+    "fields": {
+      "category": "Gastgeschenk",
+      "amount": "50.00",
+      "funding_group": 27
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 30,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 27
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 31,
+    "fields": {
+      "name": "Weinprobe",
+      "date": "2025-04-18"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 32,
+    "fields": {
+      "category": "Reinigung Tischdecken",
+      "amount": "100.00",
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 33,
+    "fields": {
+      "category": "Kosten Herr Böck",
+      "amount": "150.00",
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 34,
+    "fields": {
+      "category": "Wein",
+      "amount": "200.00",
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 35,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 36,
+    "fields": {
+      "name": "SRV-Wochenende in Kiel",
+      "date": "2025-04-19"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 37,
+    "fields": {
+      "category": "Fahrtkostenpauschale",
+      "amount": "400.00",
+      "funding_group": 36
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 38,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 36
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 39,
+    "fields": {
+      "name": "Amerikanischer Abend",
+      "date": "2025-04-20"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 40,
+    "fields": {
+      "category": "Deko",
+      "amount": "150.00",
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 41,
+    "fields": {
+      "category": "Essen und Getränke",
+      "amount": "300.00",
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 42,
+    "fields": {
+      "category": "Tischdeckenreinigung",
+      "amount": "100.00",
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 43,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 44,
+    "fields": {
+      "name": "BA Abwochenende",
+      "date": "2025-04-21"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 45,
+    "fields": {
+      "category": "Gastgeschenk",
+      "amount": "50.00",
+      "funding_group": 44
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 46,
+    "fields": {
+      "category": "Reinigung Tischdecken",
+      "amount": "100.00",
+      "funding_group": 44
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 47,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 44
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 48,
+    "fields": {
+      "name": "Mensurtag 2",
+      "date": "2025-04-22"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 49,
+    "fields": {
+      "category": "Frühstückspauschale",
+      "amount": "100.00",
+      "funding_group": 48
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 50,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 48
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 51,
+    "fields": {
+      "name": "Weißwurstfrühstück 2",
+      "date": "2025-04-23"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 52,
+    "fields": {
+      "category": "Weißwürste, Brezn, Senf",
+      "amount": "100.00",
+      "funding_group": 51
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 53,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 51
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 54,
+    "fields": {
+      "name": "Wiesnstammtisch",
+      "date": "2025-04-24"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 55,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 54
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 56,
+    "fields": {
+      "name": "SRV-Wiesnstammtisch",
+      "date": "2025-04-25"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 57,
+    "fields": {
+      "category": "Sonstiges",
+      "amount": "100.00",
+      "funding_group": 56
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 1,
+    "fields": {
+      "iban": "DE00000000000000000001",
+      "account_holder": "Lukas Bongardt",
+      "comment": "Kosten für BA Antrittswochenende",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-10T12:00:00Z",
+      "applicant": 2
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 1,
+    "fields": {
+      "application": 1,
+      "position_number": 1,
+      "description": "Gastgeschenk für BA Antrittswochenende",
+      "amount": "50.00",
+      "budget_entry": 2,
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 2,
+    "fields": {
+      "application": 1,
+      "position_number": 2,
+      "description": "Reinigung Tischdecken für BA Antrittswochenende",
+      "amount": "100.00",
+      "budget_entry": 3,
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 2,
+    "fields": {
+      "iban": "DE00000000000000000002",
+      "account_holder": "Marcel Mohrmann",
+      "comment": "Kosten für Semesterantrittskneipe",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-11T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 3,
+    "fields": {
+      "application": 2,
+      "position_number": 1,
+      "description": "Mitternachtsimbiss für Semesterantrittskneipe",
+      "amount": "100.00",
+      "budget_entry": 6,
+      "funding_group": 5
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 4,
+    "fields": {
+      "application": 2,
+      "position_number": 2,
+      "description": "Sonstiges für Semesterantrittskneipe",
+      "amount": "100.00",
+      "budget_entry": 7,
+      "funding_group": 5
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 3,
+    "fields": {
+      "iban": "DE00000000000000000003",
+      "account_holder": "Kordian Cihocki",
+      "comment": "Kosten für Weißwurstfrühstück 1",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-12T12:00:00Z",
+      "applicant": 3
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 5,
+    "fields": {
+      "application": 3,
+      "position_number": 1,
+      "description": "Weißwürste, Brezn, Senf für Weißwurstfrühstück 1",
+      "amount": "100.00",
+      "budget_entry": 9,
+      "funding_group": 8
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 6,
+    "fields": {
+      "application": 3,
+      "position_number": 2,
+      "description": "Sonstiges für Weißwurstfrühstück 1",
+      "amount": "100.00",
+      "budget_entry": 10,
+      "funding_group": 8
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 4,
+    "fields": {
+      "iban": "DE00000000000000000004",
+      "account_holder": "Leander Haselhahn",
+      "comment": "Kosten für Maibowle",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-13T12:00:00Z",
+      "applicant": 4
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 7,
+    "fields": {
+      "application": 4,
+      "position_number": 1,
+      "description": "Deko für Maibowle",
+      "amount": "100.00",
+      "budget_entry": 12,
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 8,
+    "fields": {
+      "application": 4,
+      "position_number": 2,
+      "description": "Bowle-Zutaten für Maibowle",
+      "amount": "200.00",
+      "budget_entry": 13,
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 5,
+    "fields": {
+      "iban": "DE00000000000000000005",
+      "account_holder": "Jonas Fuchs",
+      "comment": "Kosten für MDC-Maibowle",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-14T12:00:00Z",
+      "applicant": 2
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 9,
+    "fields": {
+      "application": 5,
+      "position_number": 1,
+      "description": "MDC-Kooperation für MDC-Maibowle",
+      "amount": "300.00",
+      "budget_entry": 17,
+      "funding_group": 16
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 10,
+    "fields": {
+      "application": 5,
+      "position_number": 2,
+      "description": "Sonstiges für MDC-Maibowle",
+      "amount": "100.00",
+      "budget_entry": 18,
+      "funding_group": 16
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 6,
+    "fields": {
+      "iban": "DE00000000000000000006",
+      "account_holder": "Nico Faber",
+      "comment": "Kosten für Stiftungsfest Redaria",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-15T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 11,
+    "fields": {
+      "application": 6,
+      "position_number": 1,
+      "description": "Fahrtkostenpauschale für Stiftungsfest Redaria",
+      "amount": "300.00",
+      "budget_entry": 20,
+      "funding_group": 19
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 12,
+    "fields": {
+      "application": 6,
+      "position_number": 2,
+      "description": "Gastgeschenk für Stiftungsfest Redaria",
+      "amount": "50.00",
+      "budget_entry": 21,
+      "funding_group": 19
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 7,
+    "fields": {
+      "iban": "DE00000000000000000007",
+      "account_holder": "Lukas Bongardt",
+      "comment": "Kosten für Stiftungsfest Germania",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-16T12:00:00Z",
+      "applicant": 3
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 13,
+    "fields": {
+      "application": 7,
+      "position_number": 1,
+      "description": "Fahrtkostenpauschale für Stiftungsfest Germania",
+      "amount": "200.00",
+      "budget_entry": 24,
+      "funding_group": 23
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 14,
+    "fields": {
+      "application": 7,
+      "position_number": 2,
+      "description": "Gastgeschenk für Stiftungsfest Germania",
+      "amount": "50.00",
+      "budget_entry": 25,
+      "funding_group": 23
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 8,
+    "fields": {
+      "iban": "DE00000000000000000008",
+      "account_holder": "Marcel Mohrmann",
+      "comment": "Kosten für Stiftungsfest AKB",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-17T12:00:00Z",
+      "applicant": 4
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 15,
+    "fields": {
+      "application": 8,
+      "position_number": 1,
+      "description": "Fahrtkostenpauschale für Stiftungsfest AKB",
+      "amount": "300.00",
+      "budget_entry": 28,
+      "funding_group": 27
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 16,
+    "fields": {
+      "application": 8,
+      "position_number": 2,
+      "description": "Gastgeschenk für Stiftungsfest AKB",
+      "amount": "50.00",
+      "budget_entry": 29,
+      "funding_group": 27
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 9,
+    "fields": {
+      "iban": "DE00000000000000000009",
+      "account_holder": "Kordian Cihocki",
+      "comment": "Kosten für Weinprobe",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-18T12:00:00Z",
+      "applicant": 2
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 17,
+    "fields": {
+      "application": 9,
+      "position_number": 1,
+      "description": "Reinigung Tischdecken für Weinprobe",
+      "amount": "100.00",
+      "budget_entry": 32,
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 18,
+    "fields": {
+      "application": 9,
+      "position_number": 2,
+      "description": "Kosten Herr Böck für Weinprobe",
+      "amount": "150.00",
+      "budget_entry": 33,
+      "funding_group": 31
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 10,
+    "fields": {
+      "iban": "DE00000000000000000010",
+      "account_holder": "Leander Haselhahn",
+      "comment": "Kosten für SRV-Wochenende in Kiel",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-19T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 19,
+    "fields": {
+      "application": 10,
+      "position_number": 1,
+      "description": "Fahrtkostenpauschale für SRV-Wochenende in Kiel",
+      "amount": "400.00",
+      "budget_entry": 37,
+      "funding_group": 36
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 20,
+    "fields": {
+      "application": 10,
+      "position_number": 2,
+      "description": "Sonstiges für SRV-Wochenende in Kiel",
+      "amount": "100.00",
+      "budget_entry": 38,
+      "funding_group": 36
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 11,
+    "fields": {
+      "iban": "DE00000000000000000011",
+      "account_holder": "Jonas Fuchs",
+      "comment": "Kosten für Amerikanischer Abend",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-20T12:00:00Z",
+      "applicant": 3
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 21,
+    "fields": {
+      "application": 11,
+      "position_number": 1,
+      "description": "Deko für Amerikanischer Abend",
+      "amount": "150.00",
+      "budget_entry": 40,
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 22,
+    "fields": {
+      "application": 11,
+      "position_number": 2,
+      "description": "Essen und Getränke für Amerikanischer Abend",
+      "amount": "300.00",
+      "budget_entry": 41,
+      "funding_group": 39
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 12,
+    "fields": {
+      "iban": "DE00000000000000000012",
+      "account_holder": "Nico Faber",
+      "comment": "Kosten für BA Abwochenende",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-21T12:00:00Z",
+      "applicant": 4
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 23,
+    "fields": {
+      "application": 12,
+      "position_number": 1,
+      "description": "Gastgeschenk für BA Abwochenende",
+      "amount": "50.00",
+      "budget_entry": 45,
+      "funding_group": 44
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 24,
+    "fields": {
+      "application": 12,
+      "position_number": 2,
+      "description": "Reinigung Tischdecken für BA Abwochenende",
+      "amount": "100.00",
+      "budget_entry": 46,
+      "funding_group": 44
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 13,
+    "fields": {
+      "iban": "DE00000000000000000013",
+      "account_holder": "Lukas Bongardt",
+      "comment": "Kosten für Mensurtag 2",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-22T12:00:00Z",
+      "applicant": 2
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 25,
+    "fields": {
+      "application": 13,
+      "position_number": 1,
+      "description": "Frühstückspauschale für Mensurtag 2",
+      "amount": "100.00",
+      "budget_entry": 49,
+      "funding_group": 48
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 26,
+    "fields": {
+      "application": 13,
+      "position_number": 2,
+      "description": "Sonstiges für Mensurtag 2",
+      "amount": "100.00",
+      "budget_entry": 50,
+      "funding_group": 48
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 14,
+    "fields": {
+      "iban": "DE00000000000000000014",
+      "account_holder": "Marcel Mohrmann",
+      "comment": "Kosten für Weißwurstfrühstück 2",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-23T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 27,
+    "fields": {
+      "application": 14,
+      "position_number": 1,
+      "description": "Weißwürste, Brezn, Senf für Weißwurstfrühstück 2",
+      "amount": "100.00",
+      "budget_entry": 52,
+      "funding_group": 51
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 28,
+    "fields": {
+      "application": 14,
+      "position_number": 2,
+      "description": "Sonstiges für Weißwurstfrühstück 2",
+      "amount": "100.00",
+      "budget_entry": 53,
+      "funding_group": 51
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 15,
+    "fields": {
+      "iban": "DE00000000000000000015",
+      "account_holder": "Kordian Cihocki",
+      "comment": "Kosten für Wiesnstammtisch",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-24T12:00:00Z",
+      "applicant": 3
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 29,
+    "fields": {
+      "application": 15,
+      "position_number": 1,
+      "description": "Sonstiges für Wiesnstammtisch",
+      "amount": "100.00",
+      "budget_entry": 55,
+      "funding_group": 54
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 16,
+    "fields": {
+      "iban": "DE00000000000000000016",
+      "account_holder": "Leander Haselhahn",
+      "comment": "Kosten für SRV-Wiesnstammtisch",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-25T12:00:00Z",
+      "applicant": 4
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 30,
+    "fields": {
+      "application": 16,
+      "position_number": 1,
+      "description": "Sonstiges für SRV-Wiesnstammtisch",
+      "amount": "100.00",
+      "budget_entry": 57,
+      "funding_group": 56
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 17,
+    "fields": {
+      "iban": "DE00000000000000000017",
+      "account_holder": "Marcel Mohrmann",
+      "comment": "Kosten für Aktivenfahrt nach Prag",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-26T12:00:00Z",
+      "applicant": 2
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 31,
+    "fields": {
+      "application": 17,
+      "position_number": 1,
+      "description": "Übernachtungskosten für Aktivenfahrt",
+      "amount": "200.00",
+      "funding_group": null
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 32,
+    "fields": {
+      "application": 17,
+      "position_number": 2,
+      "description": "Busfahrt für Aktivenfahrt",
+      "amount": "150.00",
+      "funding_group": null
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 18,
+    "fields": {
+      "iban": "DE00000000000000000018",
+      "account_holder": "Kordian Cihocki",
+      "comment": "Kosten für Anschaffungen Clubraum",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-27T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 33,
+    "fields": {
+      "application": 18,
+      "position_number": 1,
+      "description": "Neue Gläser für Clubraum",
+      "amount": "75.00",
+      "funding_group": null
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 34,
+    "fields": {
+      "application": 18,
+      "position_number": 2,
+      "description": "Dekoration für Clubraum",
+      "amount": "50.00",
+      "funding_group": null
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 19,
+    "fields": {
+      "iban": "DE00000000000000000019",
+      "account_holder": "Jens Misch",
+      "comment": "Kosten für gemischte Veranstaltung",
+      "status": "genehmigt",
+      "submitted_at": "2025-04-28T12:00:00Z",
+      "applicant": 3
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 35,
+    "fields": {
+      "application": 19,
+      "position_number": 1,
+      "description": "Deko für BA Antrittswochenende",
+      "amount": "75.00",
+      "budget_entry": 2,
+      "funding_group": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 36,
+    "fields": {
+      "application": 19,
+      "position_number": 2,
+      "description": "Bowle-Zutaten für Maibowle",
+      "amount": "125.00",
+      "budget_entry": 13,
+      "funding_group": 11
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 57,
+    "fields": {
+      "name": "Sonstiges"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 58,
+    "fields": {
+      "name": "Aktivenfahrt nach Rostock",
+      "date": "2025-05-02"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 59,
+    "fields": {
+      "name": "Grillen mit Keilgästen",
+      "date": "2025-05-03"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 58,
+    "fields": {
+      "funding_group": 57,
+      "category": "Allgemein",
+      "amount": "150.00"
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 20,
+    "fields": {
+      "iban": "DE0000000000000000021",
+      "account_holder": "Tester 1",
+      "comment": "Kosten für Sonstiges",
+      "status": "genehmigt",
+      "submitted_at": "2025-05-01T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 37,
+    "fields": {
+      "application": 20,
+      "position_number": 1,
+      "description": "Ausgabe für Sonstiges",
+      "amount": "150.00",
+      "budget_entry": 58,
+      "funding_group": 57
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 59,
+    "fields": {
+      "funding_group": 58,
+      "category": "Allgemein",
+      "amount": "150.00"
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 21,
+    "fields": {
+      "iban": "DE0000000000000000022",
+      "account_holder": "Tester 2",
+      "comment": "Kosten für Aktivenfahrt nach Rostock",
+      "status": "genehmigt",
+      "submitted_at": "2025-05-02T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 39,
+    "fields": {
+      "application": 21,
+      "position_number": 1,
+      "description": "Ausgabe für Aktivenfahrt nach Rostock",
+      "amount": "150.00",
+      "budget_entry": 59,
+      "funding_group": 58
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 60,
+    "fields": {
+      "funding_group": 59,
+      "category": "Allgemein",
+      "amount": "150.00"
+    }
+  },
+  {
+    "model": "reimbursements.application",
+    "pk": 22,
+    "fields": {
+      "iban": "DE0000000000000000023",
+      "account_holder": "Tester 3",
+      "comment": "Kosten für Grillen mit Keilgästen",
+      "status": "genehmigt",
+      "submitted_at": "2025-05-03T12:00:00Z",
+      "applicant": 1
+    }
+  },
+  {
+    "model": "reimbursements.applicationitem",
+    "pk": 41,
+    "fields": {
+      "application": 22,
+      "position_number": 1,
+      "description": "Ausgabe für Grillen mit Keilgästen",
+      "amount": "150.00",
+      "budget_entry": 60,
+      "funding_group": 59
+    }
+  },
+  {
+    "model": "reimbursements.cashexpenseentry",
+    "pk": 1,
+    "fields": {
+      "amount": "150.00",
+      "purpose": "Erstattung für BA Antrittswochenende",
+      "booking_date": "2025-04-10",
+      "receipt_number": "B2025-001",
+      "receipt_file": null,
+      "funding_group": 1,
+      "created_at": "2025-04-10T12:00:00Z",
+      "application": 1,
+      "balance_before": "0.00",
+      "balance_after": "-150.00"
+    }
+  },
+  {
+    "model": "reimbursements.cashincomeentry",
+    "pk": 1,
+    "fields": {
+      "amount": "500.00",
+      "purpose": "Zuschuss von Extern für Maibowle",
+      "booking_date": "2025-04-13",
+      "receipt_number": "E2025-001",
+      "receipt_file": null,
+      "funding_group": 11,
+      "created_at": "2025-04-13T12:00:00Z",
+      "income_entry": 1,
+      "balance_before": "-150.00",
+      "balance_after": "350.00"
+    }
+  },
+  {
+    "model": "reimbursements.cashexpenseentry",
+    "pk": 2,
+    "fields": {
+      "amount": "300.00",
+      "purpose": "Kosten für MDC-Maibowle",
+      "booking_date": "2025-04-14",
+      "receipt_number": "B2025-002",
+      "receipt_file": null,
+      "funding_group": 16,
+      "created_at": "2025-04-14T12:00:00Z",
+      "application": 5,
+      "balance_before": "350.00",
+      "balance_after": "50.00"
+    }
+  },
+  {
+    "model": "reimbursements.incomeentry",
+    "pk": 9999,
+    "fields": {
+      "funding_group": 11,
+      "source": "Autoimportiert",
+      "amount": "500.00",
+      "received_at": "2025-04-13",
+      "comment": "Autoerzeugt für BookingEntry 2"
+    }
+  }
+]

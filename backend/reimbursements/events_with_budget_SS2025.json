@@ -1,0 +1,291 @@
+[
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 2,
+    "fields": {
+      "name": "BA Antrittswochenende",
+      "date": "2025-04-10"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 2,
+    "fields": {
+      "funding_group": 2,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 1,
+    "fields": {
+      "name": "Starkbierfest",
+      "date": "2025-03-15"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 1,
+    "fields": {
+      "funding_group": 1,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 5,
+    "fields": {
+      "name": "Semesterantrittskneipe",
+      "date": "2025-04-11"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 5,
+    "fields": {
+      "funding_group": 5,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 8,
+    "fields": {
+      "name": "Weißwurstfrühstück Antrittswochenende",
+      "date": "2025-04-12"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 8,
+    "fields": {
+      "funding_group": 8,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 11,
+    "fields": {
+      "name": "Maibowle",
+      "date": "2025-04-13"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 11,
+    "fields": {
+      "funding_group": 11,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 16,
+    "fields": {
+      "name": "MDC-Maibowle",
+      "date": "2025-04-14"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 16,
+    "fields": {
+      "funding_group": 16,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 19,
+    "fields": {
+      "name": "Stiftungsfest Redaria",
+      "date": "2025-04-15"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 19,
+    "fields": {
+      "funding_group": 19,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 23,
+    "fields": {
+      "name": "Stiftungsfest Germania",
+      "date": "2025-04-16"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 23,
+    "fields": {
+      "funding_group": 23,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 27,
+    "fields": {
+      "name": "Stiftungsfest AKB",
+      "date": "2025-04-17"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 27,
+    "fields": {
+      "funding_group": 27,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 31,
+    "fields": {
+      "name": "Weinprobe",
+      "date": "2025-04-18"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 31,
+    "fields": {
+      "funding_group": 31,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 36,
+    "fields": {
+      "name": "SRV-Wochenende in Kiel",
+      "date": "2025-04-19"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 36,
+    "fields": {
+      "funding_group": 36,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 39,
+    "fields": {
+      "name": "Amerikanischer Abend",
+      "date": "2025-04-20"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 39,
+    "fields": {
+      "funding_group": 39,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 44,
+    "fields": {
+      "name": "BA Abwochenende",
+      "date": "2025-04-21"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 44,
+    "fields": {
+      "funding_group": 44,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 48,
+    "fields": {
+      "name": "2. Mensurtag",
+      "date": "2025-04-22"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 48,
+    "fields": {
+      "funding_group": 48,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 51,
+    "fields": {
+      "name": "Weißwurstfrühstück Abtrittswochenende",
+      "date": "2025-04-23"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 51,
+    "fields": {
+      "funding_group": 51,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 54,
+    "fields": {
+      "name": "Wiesnstammtisch",
+      "date": "2025-04-24"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 54,
+    "fields": {
+      "funding_group": 54,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  },
+  {
+    "model": "reimbursements.fundinggroup",
+    "pk": 56,
+    "fields": {
+      "name": "SRV-Wiesnstammtisch",
+      "date": "2025-04-25"
+    }
+  },
+  {
+    "model": "reimbursements.budgetentry",
+    "pk": 56,
+    "fields": {
+      "funding_group": 56,
+      "category": "Sonstiges",
+      "amount": "100.00"
+    }
+  }
+]
