@@ -37,7 +37,6 @@ export default function ApplicationFormPage() {
   useEffect(() => {
     api.get<FundingGroup[]>('fundinggroups/').then(res => {
       setFundingGroups(res.data);
-      const randomFundingGroup = res.data.length > 0 ? res.data[0] : null;
 
       api.get('budgetentries/').then(entryRes => {
         setBudgetEntries(entryRes.data);
@@ -45,32 +44,15 @@ export default function ApplicationFormPage() {
 
       api.get<UserOption[]>('users/').then(res => {
         setUsers(res.data);
-        if (res.data.length > 0) setSelectedUserId(res.data[0].id.toString());
+
+        // Immer den aktuellen Benutzer setzen – unabhängig von der Rolle
+        setSelectedUserId(user?.id?.toString() || '');
       });
 
-/*       setFormData({
-        date: new Date().toISOString().split('T')[0],
-        account_holder: 'Max Mustermann',
-        iban: 'DE89370400440532013000',
-        comment: 'Testzweck – automatisch generiert'
-      }); */
-
-/*       setItems([
-        {
-          position_number: '1',
-          description: 'Testposition 1',
-          amount: '42.50',
-          selectedFileName: '',
-          fundingGroupId: randomFundingGroup ? String(randomFundingGroup.id) : ''
-        },
-        {
-          position_number: '2',
-          description: 'Testposition 2',
-          amount: '99.99',
-          selectedFileName: '',
-          fundingGroupId: randomFundingGroup ? String(randomFundingGroup.id) : ''
-        }
-      ]); */
+      setFormData(prev => ({
+        ...prev,
+        date: new Date().toISOString().split('T')[0]
+      }));
     });
   }, []);
 
@@ -119,7 +101,7 @@ export default function ApplicationFormPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedUserId) {
+    if ((user?.role === 'admin' || user?.role === 'superuser') && !selectedUserId) {
       alert('Bitte einen Antragsteller auswählen.');
       return;
     }
@@ -130,13 +112,19 @@ export default function ApplicationFormPage() {
     }
 
     try {
-      // 1. Antrag anlegen
-      const response = await api.post('applications/', {
+      const payload: any = {
         iban: formData.iban,
         account_holder: formData.account_holder,
-        comment: formData.comment,
-        applicant: selectedUserId
-      });
+        comment: formData.comment
+      };
+
+      // Nur Admins dürfen applicant setzen
+      if (user?.role === 'admin' || user?.role === 'superuser') {
+        payload.applicant = selectedUserId;
+      }
+
+      const response = await api.post('applications/', payload);
+
 
       const applicationId = response.data.id;
 
@@ -173,18 +161,57 @@ export default function ApplicationFormPage() {
       <form onSubmit={handleSubmit} className="card p-4 shadow-sm" encType="multipart/form-data">
         <h5 className="mb-3">Einreichender</h5>
         <div className="row mb-3">
-          <div className="col-md-6">
-            <label className="form-label">Antragsteller</label>
-            <select className="form-select" value={selectedUserId} onChange={e => setSelectedUserId(e.target.value)} required>
-              {users.map(u => (
-                <option key={u.id} value={u.id}>{u.first_name || u.username} {u.last_name}</option>
-              ))}
-            </select>
-          </div>
-          <div className="col-md-6">
-            <label className="form-label">Datum</label>
-            <input className="form-control" type="date" name="date" value={formData.date} onChange={handleChange} required />
-          </div>
+          {user?.role === 'admin' || user?.role === 'superuser' ? (
+            <>
+              <div className="col-md-6">
+                <label className="form-label">Antragsteller</label>
+                <select
+                  className="form-select"
+                  value={selectedUserId}
+                  onChange={e => setSelectedUserId(e.target.value)}
+                  required
+                >
+                  {users.map(u => (
+                    <option key={u.id} value={u.id}>
+                      {u.first_name || u.username} {u.last_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="col-md-6">
+                <label className="form-label">Datum</label>
+                <input
+                  className="form-control"
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="col-md-6">
+                <label className="form-label">Antragsteller</label>
+                <input
+                  className="form-control"
+                  value={`${user?.first_name || user?.username} ${user?.last_name || ''}`}
+                  disabled
+                />
+              </div>
+              <div className="col-md-6">
+                <label className="form-label">Datum</label>
+                <input
+                  className="form-control"
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  disabled
+                />
+              </div>
+            </>
+          )}
         </div>
 
         <div className="row mb-3">

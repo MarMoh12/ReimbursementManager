@@ -6,13 +6,12 @@ import {
   Speedometer2,
   CardChecklist,
   Grid3x3Gap,
-  BoxArrowRight,
-  Person
+  BoxArrowRight
 } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header: React.FC = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,6 +21,8 @@ const Header: React.FC = () => {
 
   // ❗ Header nur anzeigen, wenn eingeloggt
   if (!isAuthenticated) return null;
+
+  const role = user?.role;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top px-4">
@@ -40,21 +41,26 @@ const Header: React.FC = () => {
               <Speedometer2 className="me-1" /> Anträge
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link d-flex align-items-center" to="/budgets">
-              <CardChecklist className="me-1" /> Budgets
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link d-flex align-items-center" to="/comparison">
-              <Grid3x3Gap className="me-1" /> Vergleich
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link d-flex align-items-center" to="/cashbook">
-              <Grid3x3Gap className="me-1" /> Kassenbuch
-            </Link>
-          </li>
+
+          {(role === 'admin' || role === 'superuser') && (
+            <>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/budgets">
+                  <CardChecklist className="me-1" /> Budgets
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/comparison">
+                  <Grid3x3Gap className="me-1" /> Vergleich
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/cashbook">
+                  <Grid3x3Gap className="me-1" /> Kassenbuch
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
         <div className="d-flex">
           <button className="btn btn-outline-light d-flex align-items-center" onClick={handleLogout}>

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import api from '../api/api';
 import { Application } from '../types/types';
 import ApplicationItem from '../components/ApplicationItem';
+import { useAuth } from '../AuthContext';
+import Select from 'react-select';
 
 export default function ApplicationListPage() {
   const [applications, setApplications] = useState<Application[]>([]);
   const [filtered, setFiltered] = useState<Application[]>([]);
+  const { user } = useAuth();
 
   // Filter-Zustände
   const [searchName, setSearchName] = useState('');
@@ -15,42 +18,50 @@ export default function ApplicationListPage() {
   const [searchStatus, setSearchStatus] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [selectedEvents, setSelectedEvents] = useState<string[]>([]);
+  const [selectedFundingGroups, setselectedFundingGroups] = useState<string[]>([]);
   const [applicants, setApplicants] = useState<string[]>([]);
-  const [events, setEvents] = useState<string[]>([]);
+  const [fundingGroups, setFundingGroups] = useState<string[]>([]);
 
   useEffect(() => {
     fetchApplications();
   }, []);
 
   const fetchApplications = () => {
-    api.get<Application[]>('applications/').then(res => {
-      const sorted = res.data.sort((a, b) =>
-        new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
-      );
-      setApplications(sorted);
-      setFiltered(sorted);
+    const endpoint = user?.role === 'user' ? 'applications/mine/' : 'applications/';
+    api.get<Application[]>(endpoint)
+      .then(res => {
+        const sorted = res.data.sort((a, b) =>
+          new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
+        );
+        setApplications(sorted);
+        setFiltered(sorted);
 
-      const names = Array.from(new Set(
-        res.data.map(app =>
-          `${app.applicant.first_name ?? ''} ${app.applicant.last_name ?? ''}`.trim()
-        )
-      ));
-      setApplicants(names);
+        const names = Array.from(new Set(
+          res.data.map(app =>
+            `${app.applicant.first_name ?? ''} ${app.applicant.last_name ?? ''}`.trim()
+          )
+        ));
+        setApplicants(names);
 
-      const eventNames = new Set<string>();
-      res.data.forEach(app => {
-        app.items?.forEach(item => {
-          if (item.funding_group?.name) {
-            eventNames.add(item.funding_group.name);
-          }
+        const fundingGroupNames = new Set<string>();
+
+        res.data.forEach(app => {
+          const isOwnApplication = user?.role === 'admin' || user?.role === 'superuser' || app.applicant.id === user?.id;
+          if (!isOwnApplication) return;
+
+          app.items?.forEach(item => {
+            if (item.funding_group?.name) {
+              fundingGroupNames.add(item.funding_group.name);
+            }
+          });
         });
+
+        setFundingGroups(Array.from(fundingGroupNames));
+      }).catch(err => {
+        console.error("Fehler beim Laden der Anträge", err);
       });
-      setEvents(Array.from(eventNames));
-    }).catch(err => {
-      console.error("Fehler beim Laden der Anträge", err);
-    });
   };
+
 
   const handleDelete = async (id: number) => {
     const confirmed = window.confirm("Bist du sicher, dass du diesen Antrag löschen möchtest?");
@@ -117,11 +128,11 @@ export default function ApplicationListPage() {
       );
     }
 
-    if (selectedEvents.length > 0) {
+    if (selectedFundingGroups.length > 0) {
       result = result.filter(app =>
         app.items?.some(item =>
           item.funding_group &&
-          selectedEvents.includes(item.funding_group.name)
+          selectedFundingGroups.includes(item.funding_group.name)
         )
       );
     }
@@ -137,7 +148,7 @@ export default function ApplicationListPage() {
     setSearchStatus('');
     setStartDate('');
     setEndDate('');
-    setSelectedEvents([]);
+    setselectedFundingGroups([]);
     setFiltered(applications);
   };
 
@@ -147,19 +158,21 @@ export default function ApplicationListPage() {
         <div className="card-body">
           <h5 className="mb-3">🔍 Filter</h5>
           <div className="row gy-2 gx-3 align-items-end">
-            <div className="col-md-3">
-              <label className="form-label">Einreicher</label>
-              <select
-                className="form-select"
-                value={searchName}
-                onChange={(e) => setSearchName(e.target.value)}
-              >
-                <option value="">Alle</option>
-                {applicants.map((name, idx) => (
-                  <option key={idx} value={name}>{name}</option>
-                ))}
-              </select>
-            </div>
+            {user?.role !== 'user' && (
+              <div className="col-md-3">
+                <label className="form-label">Einreicher</label>
+                <select
+                  className="form-select"
+                  value={searchName}
+                  onChange={(e) => setSearchName(e.target.value)}
+                >
+                  <option value="">Alle</option>
+                  {applicants.map((name, idx) => (
+                    <option key={idx} value={name}>{name}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             <div className="col-md-3">
               <label className="form-label">Zweck</label>
               <input
@@ -220,22 +233,15 @@ export default function ApplicationListPage() {
               />
             </div>
             <div className="col-md-4">
-              <label className="form-label">Veranstaltungen (Mehrfachauswahl)</label>
-              <select
-                className="form-select"
-                multiple
-                size={5}
-                style={{ height: '9rem' }}
-                value={selectedEvents}
-                onChange={(e) => {
-                  const options = Array.from(e.target.selectedOptions, option => option.value);
-                  setSelectedEvents(options);
+              <label className="form-label">Mittelverwendungsgruppen</label>
+              <Select
+                isMulti
+                options={fundingGroups.map(fundingGroup => ({ value: fundingGroup, label: fundingGroup }))}
+                value={selectedFundingGroups.map(ev => ({ value: ev, label: ev }))}
+                onChange={(selectedOptions) => {
+                  setselectedFundingGroups(selectedOptions.map(option => option.value));
                 }}
-              >
-                {events.map((event, idx) => (
-                  <option key={idx} value={event}>{event}</option>
-                ))}
-              </select>
+              />
             </div>
 
             <div className="col-md-2 d-flex gap-2">
@@ -264,7 +270,6 @@ export default function ApplicationListPage() {
                       prev.map(a => (a.id === id ? { ...a, status: newStatus } : a))
                     );
                   }}
-                  canEditStatus={true}
                 />
               ))
             ) : (
