@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Application } from '../types/types';
-import { Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 import api from '../api/api';
 
 interface Props {
   app: Application;
   onDelete?: () => void;
   onStatusChange?: (id: number, newStatus: string) => void;
-  canEditStatus?: boolean;
 }
 
 function getStatusBadge(status: string) {
@@ -20,10 +19,11 @@ function getStatusBadge(status: string) {
   return <span className={`badge bg-${map[status] || 'dark'}`}>{status.replace('_', ' ')}</span>;
 }
 
-export default function ApplicationItem({ app, onDelete, onStatusChange, canEditStatus }: Props) {
+export default function ApplicationItem({ app, onDelete, onStatusChange }: Props) {
+  const { user } = useAuth();
+  const isAdmin = user?.role === 'admin' || user?.role === 'superuser';
   const [isItemsVisible, setIsItemsVisible] = useState(false);
   const [statusUpdating, setStatusUpdating] = useState(false);
-  console.log(app)
 
   const items = app.items || [];
   const total = items.reduce((sum, item) => {
@@ -58,9 +58,6 @@ export default function ApplicationItem({ app, onDelete, onStatusChange, canEdit
           <span className="fw-semibold ms-4 me-2">Kontoinhaber:</span>
           {app.account_holder}
         </div>
-        <Link to={`/applications/${app.id}`} className="btn btn-sm btn-outline-primary">
-          Details
-        </Link>
         <div>
           {items.length > 0 && (
             <button
@@ -76,7 +73,7 @@ export default function ApplicationItem({ app, onDelete, onStatusChange, canEdit
       <div className="card-body">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <span><strong>Status:</strong> {getStatusBadge(app.status)}</span>
-          {canEditStatus && (
+          {isAdmin && (
             <select
               className="form-select form-select-sm w-auto"
               value={app.status}
@@ -90,25 +87,29 @@ export default function ApplicationItem({ app, onDelete, onStatusChange, canEdit
             </select>
           )}
         </div>
-
-        <p><strong>Zweck:</strong> {app.comment}</p>
+        <p><strong>Kommentar:</strong> {app.comment}</p>
+        <p><strong>IBAN:</strong> {app.iban}</p>
         <p><strong>Eingereicht am:</strong> {new Date(app.submitted_at).toLocaleDateString()}</p>
         <p><strong>Betrag (gesamt):</strong> {items.length > 0 ? `${total.toFixed(2)} €` : '–'}</p>
 
+
         <div className="d-flex gap-2">
-          <button
-            className="btn btn-outline-secondary btn-sm"
-            title="AC-Beschlusstext kopieren"
-            onClick={() => {
-              const text = `Der hohe AC möge beschließen Bbr. ${app.applicant.username.split(' ').slice(-1)[0]} die Kosten i.H.v. ${total.toFixed(2)}€ für Anschaffungen.`;
-              navigator.clipboard.writeText(text).then(() => {
-                alert('Text wurde in die Zwischenablage kopiert!');
-              });
-            }}
-          >
-            📝
-          </button>
-          {onDelete && (
+          {isAdmin && (
+            <button
+              className="btn btn-outline-secondary btn-sm"
+              title="AC-Beschlusstext kopieren"
+              onClick={() => {
+                const text = `Der hohe AC möge beschließen Bbr. ${app.applicant.first_name + " " + app.applicant.last_name} die Kosten i.H.v. ${total.toFixed(2)}€ für den Zweck "${app.comment}" zu erstatten.`;
+                navigator.clipboard.writeText(text).then(() => {
+                  alert('Text wurde in die Zwischenablage kopiert!');
+                });
+              }}
+            >
+              📝
+            </button>
+          )}
+
+          {isAdmin && onDelete && (
             <button
               className="btn btn-outline-danger btn-sm"
               onClick={onDelete}
@@ -117,6 +118,7 @@ export default function ApplicationItem({ app, onDelete, onStatusChange, canEdit
               🗑️
             </button>
           )}
+
         </div>
       </div>
 

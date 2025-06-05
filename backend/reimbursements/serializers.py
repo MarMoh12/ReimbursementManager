@@ -28,7 +28,7 @@ class IncomeEntrySerializer(serializers.ModelSerializer):
         model = IncomeEntry
         fields = ['id', 'funding_group', 'source', 'amount', 'received_at', 'comment']
 
-# 🧾 Veranstaltung (FundingGroup)
+# 🧾 Mittelverwendung (FundingGroup)
 class FundingGroupSerializer(serializers.ModelSerializer):
     budgets = BudgetEntrySerializer(many=True, read_only=True)
     income_entries = IncomeEntrySerializer(many=True, read_only=True)

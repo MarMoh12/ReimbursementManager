@@ -2,7 +2,9 @@ from rest_framework import viewsets
 from rest_framework.permissions import DjangoModelPermissions, IsAuthenticated
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 from .models import (
     Application,
@@ -46,7 +48,16 @@ class ApplicationViewSet(viewsets.ModelViewSet):
         ).select_related('applicant')
     
     def perform_create(self, serializer):
-        serializer.save(applicant=self.request.user)
+        user = self.request.user
+        is_admin = user.is_superuser or user.groups.filter(name='Admin').exists()
+
+        if is_admin:
+            serializer.save()
+        else:
+            # Entferne ggf. unerlaubte applicant-Angabe
+            serializer.validated_data.pop('applicant', None)
+            serializer.save(applicant=user, submitted_at=timezone.now())
+            
 
     @action(detail=False, methods=['get'], url_path='mine', permission_classes=[IsAuthenticated])
     def mine(self, request):
@@ -90,13 +101,14 @@ class CashIncomeEntryViewSet(viewsets.ModelViewSet):
 def current_user_view(request):
     user = request.user
 
-    # ➕ neue Logik zur Rollenerkennung
     if user.is_superuser:
         role = 'superuser'
     elif user.groups.filter(name='Admin').exists():
         role = 'admin'
-    else:
+    elif user.groups.filter(name='User').exists():
         role = 'user'
+    else:
+        role = 'guest'
 
     return Response({
         "id": user.id,
@@ -104,9 +116,7 @@ def current_user_view(request):
         "first_name": user.first_name,
         "last_name": user.last_name,
         "email": user.email,
-        "is_staff": user.is_staff,
-        "is_superuser": user.is_superuser,
+        "role": role,
         "groups": list(user.groups.values_list('name', flat=True)),
         "permissions": list(user.user_permissions.values_list('codename', flat=True)),
-        "role": role,
     })
