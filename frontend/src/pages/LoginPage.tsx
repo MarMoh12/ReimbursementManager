@@ -13,7 +13,7 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch('http://localhost:8000/api/token/', {
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/token/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
