@@ -14,6 +14,7 @@ services:
     build: ./frontend
     volumes:
       - ./frontend:/app
+      - /app/node_modules  # verhindert Konflikt mit lokalen node_modules
     ports:
       - "3000:3000"
     env_file:
