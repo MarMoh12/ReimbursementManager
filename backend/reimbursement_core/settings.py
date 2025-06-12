@@ -130,7 +130,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://frontend:3000",
     "http://127.0.0.1:3000",
-    "http://116.203.185.217"
+    "http://116.203.185.217:3000"
 ]
 
 MEDIA_URL = '/media/'

@@ -5,8 +5,8 @@ import { useAuth } from '../AuthContext';
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [username, setUsername] = useState('marcelmohrmann');
-  const [password, setPassword] = useState('Opa240236ma!');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
