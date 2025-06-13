@@ -8,12 +8,11 @@ const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    console.log(`${process.env.REACT_APP_API_BASE_URL}/api/token/`)
 
     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/token/`, {
       method: 'POST',
@@ -50,13 +49,23 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="mb-3">
             <label className="form-label">Passwort</label>
-            <input
-              type="password"
-              className="form-control"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="input-group">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={() => setShowPassword(!showPassword)}
+                tabIndex={-1}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
           </div>
           <button type="submit" className="btn btn-primary w-100" disabled={loading}>
             {loading ? 'Einloggen...' : 'Einloggen'}

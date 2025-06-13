@@ -1,21 +1,23 @@
-version: "3.9"
+version: '3.9'
 
 services:
   backend:
     build: ./backend
     container_name: reimbursement-backend
+    volumes:
+      - ./backend:/app
     ports:
       - "8000:8000"
-    environment:
-      - DJANGO_SETTINGS_MODULE=config.settings
-    # ggf. volumes usw.
+    env_file:
+      - .env
 
   frontend:
     build: ./frontend
     container_name: reimbursement-frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # verhindert Konflikt mit lokalen node_modules
     ports:
       - "3000:3000"
     env_file:
-      - ./frontend/.env
-    depends_on:
-      - backend
+      - .env

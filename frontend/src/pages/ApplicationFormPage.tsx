@@ -156,7 +156,7 @@ export default function ApplicationFormPage() {
   };
 
   return (
-    <div className="container my-5" style={{ maxWidth: '70%' }}>
+    <div className="container my-5" style={{ maxWidth: '90%' }}>
       <h2 className="mb-4 text-center">Auslagenerstattungsformular</h2>
       <form onSubmit={handleSubmit} className="card p-4 shadow-sm" encType="multipart/form-data">
         <h5 className="mb-3">Einreichender</h5>
