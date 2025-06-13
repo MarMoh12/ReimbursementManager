@@ -10,6 +10,8 @@ import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './AuthContext';
 import CashbookPage from './pages/CashbookPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const App: React.FC = () => {
   return (
