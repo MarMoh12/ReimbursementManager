@@ -282,30 +282,55 @@ export default function CashbookPage() {
         </div>
       )}
 
-      <table className="table table-striped table-hover">
-        <thead>
-          <tr>
-            {allColumns.map(col => (
-              <th key={col.key}>{col.label}</th>
-            ))}
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredEntries.map(entry => (
-            <tr key={`${entry.type}-${entry.id}`}>
+      {/* Tabelle für große Bildschirme */}
+      <div className="d-none d-md-block">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
               {allColumns.map(col => (
-                <td key={col.key}>{renderCell(entry, col.key)}</td>
+                <th key={col.key}>{col.label}</th>
               ))}
-              <td>
-                <button className="btn btn-sm btn-outline-danger" onClick={() => handleDelete(entry)}>
-                  🗑️
-                </button>
-              </td>
+              <th></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredEntries.map(entry => (
+              <tr key={`${entry.type}-${entry.id}`}>
+                {allColumns.map(col => (
+                  <td key={col.key}>{renderCell(entry, col.key)}</td>
+                ))}
+                <td>
+                  <button className="btn btn-sm btn-outline-danger" onClick={() => handleDelete(entry)}>
+                    🗑️
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Kartenansicht für Mobilgeräte */}
+      <div className="d-md-none">
+        {filteredEntries.map(entry => (
+          <div key={`${entry.type}-${entry.id}`} className="card mb-3 shadow-sm">
+            <div className="card-body p-3">
+              {allColumns.map(col => (
+                <div key={col.key} className="mb-2">
+                  <div className="fw-semibold small text-muted">{col.label}</div>
+                  <div>{renderCell(entry, col.key)}</div>
+                </div>
+              ))}
+              <div className="text-end">
+                <button className="btn btn-sm btn-outline-danger" onClick={() => handleDelete(entry)}>
+                  🗑️ Löschen
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }

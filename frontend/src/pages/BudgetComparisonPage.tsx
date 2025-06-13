@@ -27,32 +27,30 @@ export default function BudgetComparisonPage() {
     setOpenStatusSections(prev => ({ ...prev, [status]: !prev[status] }));
   };
 
-useEffect(() => {
-  const fetchData = async () => {
-    const fundingGroupsRes = await api.get<(FundingGroup & { income_entries?: IncomeEntry[] })[]>('fundinggroups/');
-    const appsRes = await api.get<Application[]>('applications/');
+  useEffect(() => {
+    const fetchData = async () => {
+      const fundingGroupsRes = await api.get<(FundingGroup & { income_entries?: IncomeEntry[] })[]>('fundinggroups/');
+      const appsRes = await api.get<Application[]>('applications/');
 
-    const fundingGroups = fundingGroupsRes.data;
-    const apps = appsRes.data;
+      const fundingGroups = fundingGroupsRes.data;
+      const apps = appsRes.data;
 
-    // Statusbereiche initial öffnen
-    const initialStatusState: Record<string, boolean> = {};
-    const statuses = ['ausgezahlt', 'genehmigt', 'entscheidung_ausstehend', 'abgelehnt'];
+      const initialStatusState: Record<string, boolean> = {};
+      const statuses = ['ausgezahlt', 'genehmigt', 'entscheidung_ausstehend', 'abgelehnt'];
 
-    fundingGroups.forEach(fg => {
-      statuses.forEach(status => {
-        initialStatusState[`${fg.id}_${status}`] = true;
+      fundingGroups.forEach(fg => {
+        statuses.forEach(status => {
+          initialStatusState[`${fg.id}_${status}`] = true;
+        });
       });
-    });
 
-    setFundingGroups(fundingGroups);
-    setApplications(apps);
-    setOpenStatusSections(initialStatusState);
-  };
+      setFundingGroups(fundingGroups);
+      setApplications(apps);
+      setOpenStatusSections(initialStatusState);
+    };
 
-  fetchData();
-}, []);
-
+    fetchData();
+  }, []);
 
   const toggleFundingGroup = (fundingGroupId: number) => {
     setOpenFundingGroupIds(prev =>
@@ -99,35 +97,25 @@ useEffect(() => {
   }, 0);
 
   return (
-    <div className="container mt-5">
+    <div className="container-fluid mt-4 px-2 px-sm-4">
       <h2 className="mb-4 text-center">📊 Geplant-Ist-Vergleich nach Mittelverwendungsgruppe</h2>
 
-      <div className="row g-3 mb-4 bg-white sticky-top pt-3 pb-2 border-bottom" style={{ top: '70px', zIndex: 10 }}>
-        <div className="col-md-4">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-4 bg-white pt-3 pb-2 border-bottom bg-white" style={{ top: '70px', zIndex: 10 }}>
+        <div className="col">
           <label className="form-label fw-semibold">Zeitraum: Von</label>
-          <input
-            type="date"
-            className="form-control shadow-sm"
-            value={startDate}
-            onChange={e => setStartDate(e.target.value)}
-          />
+          <input type="date" className="form-control shadow-sm" value={startDate} onChange={e => setStartDate(e.target.value)} />
         </div>
-        <div className="col-md-4">
+        <div className="col">
           <label className="form-label fw-semibold">Bis</label>
-          <input
-            type="date"
-            className="form-control shadow-sm"
-            value={endDate}
-            onChange={e => setEndDate(e.target.value)}
-          />
+          <input type="date" className="form-control shadow-sm" value={endDate} onChange={e => setEndDate(e.target.value)} />
         </div>
-        <div className="col-md-2 d-flex align-items-end">
+        <div className="col">
           <div className="w-100 bg-light border rounded p-3 text-center shadow-sm">
             <div className="text-muted small">Ist im Zeitraum</div>
             <div className="fs-5 fw-bold text-success">{totalIstInRange.toFixed(2)} €</div>
           </div>
         </div>
-        <div className="col-md-2 d-flex align-items-end">
+        <div className="col">
           <div className="w-100 bg-light border rounded p-3 text-center shadow-sm">
             <div className="text-muted small">Geplant im Zeitraum</div>
             <div className="fs-5 fw-bold text-primary">{totalGeplantInRange.toFixed(2)} €</div>
@@ -198,27 +186,28 @@ useEffect(() => {
 
         return (
           <div key={fundingGroup.id} className="card mb-4 shadow-sm">
-            <div
-              className="card-header d-flex justify-content-between align-items-center bg-light"
-              onClick={() => toggleFundingGroup(fundingGroup.id)}
-              style={{ cursor: 'pointer' }}
-            >
-              <strong>
+          <div
+            className="card-header bg-light"
+            onClick={() => toggleFundingGroup(fundingGroup.id)}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+              <strong className="mb-2 mb-md-0">
                 {fundingGroup.name}
                 {fundingGroup.date ? ` (${fundingGroup.date})` : ''}
               </strong>
-              <div className="text-end">
-                <span className="badge bg-success me-2">Ist: {totalIst.toFixed(2)} €</span>
-                <span className="badge bg-warning text-dark me-2">Ausstehend: {totalAusstehend.toFixed(2)} €</span>
-                <span className="badge bg-danger me-2">Abgelehnt: {totalAusstehend.toFixed(2)} €</span>
-                <span className="badge bg-primary me-2">Geplant: {totalGeplant.toFixed(2)} €</span>
-                <span className="badge bg-info me-2">Einnahmen: {totalIncome.toFixed(2)} €</span>
+              <div className="d-flex flex-wrap gap-2">
+                <span className="badge bg-success">Ist: {totalIst.toFixed(2)} €</span>
+                <span className="badge bg-warning text-dark">Ausstehend: {totalAusstehend.toFixed(2)} €</span>
+                <span className="badge bg-danger">Abgelehnt: {totalAbgelehnt.toFixed(2)} €</span>
+                <span className="badge bg-primary">Geplant: {totalGeplant.toFixed(2)} €</span>
+                <span className="badge bg-info">Einnahmen: {totalIncome.toFixed(2)} €</span>
                 <span className={`badge ${saldo >= 0 ? 'bg-success-subtle text-success' : 'bg-danger-subtle text-danger'}`}>
                   Saldo: {saldo.toFixed(2)} €
                 </span>
               </div>
             </div>
-
+          </div>
             {isOpen && (
               <div className="card-body">
                 <h6 className="fw-semibold mb-3">Einnahmen</h6>
